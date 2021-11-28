@@ -27,3 +27,4 @@ final popularCardSaveBoxDecaration = BoxDecoration(
   ),
   color: Colors.grey.shade400.withOpacity(0.7),
 );
+final ruleTextStyle = TextStyle(fontWeight: FontWeight.bold);

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../text_style.dart';
+
 class Rule extends StatelessWidget {
   const Rule({
     Key? key,
@@ -15,7 +17,7 @@ class Rule extends StatelessWidget {
       onTap: onPress,
       child: Text(
         ruleText,
-        style: TextStyle(fontWeight: FontWeight.bold),
+        style: ruleTextStyle,
       ),
     );
   }

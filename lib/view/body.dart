@@ -25,7 +25,7 @@ class _BodyState extends State<Body> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 3.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -56,7 +56,7 @@ class _BodyState extends State<Body> {
   SvgPicture get cancel {
     return SvgPicture.asset(
       Constants.CANCEL_BUTTON_IMAGE,
-      width: 30,
+      width: 8.w,
       alignment: Alignment.topLeft,
     );
   }
