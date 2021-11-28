@@ -1,16 +1,18 @@
-# squamobi
+# Squamobi 
 
-A new Flutter project.
+## Kullandığım Paketler
 
-## Getting Started
+1-flutter_svg 0.23.0+1
 
-This project is a starting point for a Flutter application.
+2-responsive_sizer 3.0.4+4
 
-A few resources to get you started if this is your first Flutter project:
+## Iphone 13 Pro Ekran Görüntüsü
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+https://user-images.githubusercontent.com/62101026/143735915-595428e5-25ee-4d99-a4f3-9c2314bb2d02.mov
+
+## Iphone 5S Ekran Görüntüsü
+
+
+
+<img width="351" alt="Ekran Resmi 2021-11-27 00 03 29" src="https://user-images.githubusercontent.com/62101026/143735953-357279e3-8a7c-45bc-ab05-99863f423966.png">
