@@ -6,6 +6,8 @@
 
 2-responsive_sizer 3.0.4+4
 
+3-provider 6.0.1 
+
 ## Iphone 13 Pro Ekran Görüntüsü
 
 
