@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:squamobi/core/model/card_model.dart';
 import 'package:squamobi/ui/shared/constants.dart';
 import 'package:squamobi/ui/shared/text_style.dart';
 import 'package:squamobi/ui/shared/ui_helper.dart';
@@ -134,33 +136,46 @@ class _BodyState extends State<Body> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Cards(
-          text: "999.99\$ per month auto renewable",
-          active: _active1,
-          onPress: () {
-            setState(() {
-              choise(1);
-            });
+        Consumer(
+          builder: (context, cardModel, child) {
+            return Cards(
+              text: "999.99\$ per month auto renewable",
+              active: active1,
+              onPress: () {
+                setState(() {
+                  CardModel().choise(1);
+                });
+              },
+            );
           },
         ),
-        PopularCard(
-          text: "999.99\$ per month auto renewable",
-          active: _active2,
-          save: 23,
-          trial: 3,
-          onPress: () {
-            setState(() {
-              choise(2);
-            });
+        Consumer(
+          builder: (context, cardModel, child) {
+            return PopularCard(
+              text: "999.99\$ per month auto renewable",
+              active: active2,
+              save: 23,
+              trial: 3,
+              onPress: () {
+                setState(() {
+                  CardModel().choise(2);
+                  ;
+                });
+              },
+            );
           },
         ),
-        Cards(
-          active: _active3,
-          text: "999.99\$ per month auto renewable",
-          onPress: () {
-            setState(() {
-              choise(3);
-            });
+        Consumer(
+          builder: (context, cardModel, child) {
+            return Cards(
+              active: active3,
+              text: "999.99\$ per month auto renewable",
+              onPress: () {
+                setState(() {
+                  CardModel().choise(3);
+                });
+              },
+            );
           },
         ),
       ],
@@ -197,46 +212,5 @@ class _BodyState extends State<Body> {
               currentPage == index ? UIHelper().DEEP_PURPLE : UIHelper().GREY),
       duration: Duration(milliseconds: UIHelper.SPLASH_DURATION),
     );
-  }
-}
-
-bool _active1 = true;
-bool _active2 = false;
-bool _active3 = false;
-
-void choise(
-  int choise,
-) {
-  switch (choise) {
-    case 1:
-      {
-        if (_active1 == false) {
-          _active1 = true;
-          _active2 = false;
-          _active3 = false;
-        } else
-          _active1 = false;
-      }
-      break;
-    case 2:
-      {
-        if (_active2 == false) {
-          _active2 = true;
-          _active1 = false;
-          _active3 = false;
-        } else
-          _active2 = false;
-      }
-      break;
-    case 3:
-      {
-        if (_active3 == false) {
-          _active3 = true;
-          _active2 = false;
-          _active1 = false;
-        } else
-          _active3 = false;
-      }
-      break;
   }
 }
