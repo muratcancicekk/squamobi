@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:squamobi/core/model/card_model.dart';
+import 'package:squamobi/core/model/page_model.dart';
 import 'package:squamobi/view/body.dart';
 
 void main() {
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => CardModel()),
+        ChangeNotifierProvider(create: (context) => PageModel()),
       ],
       child: ResponsiveSizer(builder: (context, orientation, screenType) {
         return MaterialApp(

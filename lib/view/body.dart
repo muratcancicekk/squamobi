@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:squamobi/core/model/card_model.dart';
+import 'package:squamobi/core/model/page_model.dart';
 import 'package:squamobi/ui/shared/constants.dart';
 import 'package:squamobi/ui/shared/text_style.dart';
 import 'package:squamobi/ui/shared/ui_helper.dart';
@@ -13,16 +14,9 @@ import 'package:squamobi/ui/shared/widget/elevatedtextbutton/elevated_text_butto
 import 'package:squamobi/ui/shared/widget/rule/rule.dart';
 import 'package:squamobi/ui/shared/widget/splash/splash_text.dart';
 
-class Body extends StatefulWidget {
+class Body extends StatelessWidget {
   Body({Key? key}) : super(key: key);
-
   @override
-  _BodyState createState() => _BodyState();
-}
-
-class _BodyState extends State<Body> {
-  int currentPage = 0;
-
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -104,29 +98,35 @@ class _BodyState extends State<Body> {
   Column get splashTitle {
     return Column(
       children: [
-        Expanded(
-          flex: 2,
-          child: PageView.builder(
-            onPageChanged: (value) {
-              setState(() {
-                currentPage = value;
-              });
-            },
-            itemCount: splashDatas.length,
-            itemBuilder: (context, index) => splashContext(
-              text: splashDatas[index]["title"]!,
-            ),
-          ),
+        Consumer<PageModel>(
+          builder: (context, pageModel, child) {
+            return Expanded(
+              flex: 2,
+              child: PageView.builder(
+                onPageChanged: (value) {
+                  pageModel.CurrentPage(value);
+                },
+                itemCount: splashDatas.length,
+                itemBuilder: (context, index) => splashContext(
+                  text: splashDatas[index]["title"]!,
+                ),
+              ),
+            );
+          },
         ),
-        Expanded(
-          child: Container(
-            width: 15.w,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: List.generate(
-                  splashDatas.length, (index) => buildDot(index: index)),
-            ),
-          ),
+        Consumer<PageModel>(
+          builder: (context, pageModel, child) {
+            return Expanded(
+              child: Container(
+                width: 15.w,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: List.generate(
+                      splashDatas.length, (index) => buildDot(index: index)),
+                ),
+              ),
+            );
+          },
         ),
       ],
     );
@@ -136,20 +136,18 @@ class _BodyState extends State<Body> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Consumer(
+        Consumer<CardModel>(
           builder: (context, cardModel, child) {
             return Cards(
               text: "999.99\$ per month auto renewable",
               active: active1,
               onPress: () {
-                setState(() {
-                  CardModel().choise(1);
-                });
+                cardModel.choise(1);
               },
             );
           },
         ),
-        Consumer(
+        Consumer<CardModel>(
           builder: (context, cardModel, child) {
             return PopularCard(
               text: "999.99\$ per month auto renewable",
@@ -157,23 +155,18 @@ class _BodyState extends State<Body> {
               save: 23,
               trial: 3,
               onPress: () {
-                setState(() {
-                  CardModel().choise(2);
-                  ;
-                });
+                cardModel.choise(2);
               },
             );
           },
         ),
-        Consumer(
+        Consumer<CardModel>(
           builder: (context, cardModel, child) {
             return Cards(
               active: active3,
               text: "999.99\$ per month auto renewable",
               onPress: () {
-                setState(() {
-                  CardModel().choise(3);
-                });
+                cardModel.choise(3);
               },
             );
           },

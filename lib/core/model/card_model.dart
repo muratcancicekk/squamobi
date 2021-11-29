@@ -17,6 +17,7 @@ class CardModel extends ChangeNotifier {
             active3 = false;
           } else
             active1 = false;
+          notifyListeners();
         }
         break;
       case 2:
@@ -27,6 +28,7 @@ class CardModel extends ChangeNotifier {
             active3 = false;
           } else
             active2 = false;
+          notifyListeners();
         }
         break;
       case 3:
@@ -37,6 +39,7 @@ class CardModel extends ChangeNotifier {
             active1 = false;
           } else
             active3 = false;
+          notifyListeners();
         }
         break;
     }
